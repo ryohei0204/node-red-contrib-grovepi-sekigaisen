@@ -1,0 +1,42 @@
+<script type="text/javascript">
+  RED.nodes.registerType('infrared',{
+    category: 'input',//inputのカテゴリに追加
+    color: '#89c3eb',
+    defaults:{
+      name: {value:""},
+      pin {value:"",required:true,validate:RED.validators.number()},
+      set: {value:""}
+    },
+    inputs:1,//ノードのインプット数
+    outputs:1,
+    icon: "serial.png",
+    label: function(){
+      return this.name||"infrared";
+    },
+  });
+  </script>
+
+  <script type="text/x-red" data-template-name="infrared">
+    <div class="form-row">
+      <label for="node-input-pin"><i class="fa fa-circle"></i> <span>Port</span></label>
+      <select type="text" id="node-input-pin" style="width: 250px;">
+          <option value="2">Digital 2</option>
+          <option value="3">Digital 3</option>
+          <option value="4">Digital 4</option>
+          <option value="5">Digital 5</option>
+          <option value="6">Digital 6</option>
+          <option value="7">Digital 7</option>
+          <option value="8">Digital 8</option>
+        </select>
+        &nbsp;<span id="pitype"></span>
+      </div>
+      <br/>
+      <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span>Name</span></label>
+        <input type="text" id="node-input-name">
+      </div>
+   </script>
+
+   <script type="text/x-red" data-help-name="infrared">
+      <p>It is a infrared-node. Outputs 0 or 1.</p>
+   </script>

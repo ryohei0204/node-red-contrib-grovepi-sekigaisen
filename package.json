@@ -1,0 +1,31 @@
+{
+  "name": "node-red-contrib-grovepi-sekigaisen",
+  "version": "1.0.0",
+  "description": "test for grovepi",
+  "dependencies": {
+    "node-grovepi": "2.1.1"
+  },
+  "main": "infrared.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "node-red": {
+    "nodes": {
+      "infrared": "infrared.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryohei0204/node-red-contrib-grovepi-test.git"
+  },
+  "keywords": [
+    "node-red",
+    "grovepi"
+  ],
+  "author": "ryohei0204",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ryohei0204/node-red-contrib-grovepi-test/issues"
+  },
+  "homepage": "https://github.com/ryohei0204/node-red-contrib-grovepi-test#readme"
+}
