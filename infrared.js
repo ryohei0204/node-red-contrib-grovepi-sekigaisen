@@ -4,12 +4,13 @@ module.exports = function(RED){
     var Digital = GrovePi.sensors.base.Digital;
     var board = GrovePi.board;
 
-    function infraredNode(n){
-    RED.nodes.createNode(this,n);
-    this.pin = n.pin;
-    this.sensor = n.sensor;
-    this.repeat = n.repeat;
+    function InfraredNode(config){
+    RED.nodes.createNode(this,config);
+    this.pin = config.pin;
+    this.sensor = config.sensor;
+    this.repeat = config.repeat;
     if (RED.settings.verbose) { this.log("Digital Sensor: Pin: " + this.pin + ", Repeat: " + this.repeat); }
+    //RED.settings.~のところ名所変更必要あり？
     var node = this;
     if(node.boardConfig){
       if(!node.boardConfig.board){
@@ -21,16 +22,16 @@ module.exports = function(RED){
     var digital = new Digital(node.pin);
     board.pinMode(node.pin,'output');
 
-    node.on('input',function(input_msg){
+    node.on('input',function(msg){//入力で渡されたmsgに対して操作をする
       //どのタイミングでinput_msgにデータを投げているのか。
       //var msg = new Object();
-      if(input_msg == 0){
+      if(msg.payload == 0){
         msg.payload = "true";
       }else{
         msg.payload = "false";
       }
-      node.send(msg.payload);
+      node.send(msg);//ノードの出力定義、変換後の出力を返す。
     });
   }
-    RED.nodes.registerType("infrared",infraredNode);
+    RED.nodes.registerType("infrared",InfraredNode);
   }

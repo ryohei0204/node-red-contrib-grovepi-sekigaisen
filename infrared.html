@@ -4,15 +4,15 @@
     color: '#89c3eb',
     defaults:{
       name: {value:""},
-      pin {value:"",required:true,validate:RED.validators.number()},
+      pin: {value:"",required:true,validate:RED.validators.number()},
       set: {value:""}
     },
-    inputs:1,//ノードのインプット数
+    inputs:0,//ノードのインプット数,0ならinputノード
     outputs:1,
     icon: "serial.png",
     label: function(){
       return this.name||"infrared";
-    },
+    }
   });
   </script>
 
@@ -38,5 +38,5 @@
    </script>
 
    <script type="text/x-red" data-help-name="infrared">
-      <p>It is a infrared-node. Outputs 0 or 1.</p>
+      <p>It is a infrared-node. Outputs true or false.</p>
    </script>
